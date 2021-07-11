@@ -17,6 +17,7 @@
           - rsync
           - lsof
           - ecryptfs-utils
+          - python3-pexpect
         state: present
     - name: modprobe ecryptfs
       command: "modprobe ecryptfs"
