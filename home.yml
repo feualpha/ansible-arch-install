@@ -70,7 +70,7 @@
         - pamd:
             name: system-auth
             type: session
-            control: "[success=1 default-ignore]"
+            control: "[success=1 default=ignore]"
             module_path: pam_succeed_if.so
             new_type: session
             new_control: optional
