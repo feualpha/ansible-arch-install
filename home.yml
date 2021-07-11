@@ -29,7 +29,7 @@
         command: "ecryptfs-migrate-home -u {{ username }}"
         responses:
           (?i)passphrase: "{{ password }}"
-      when: encryptdir.stat.exists
+      when: not encryptdir.stat.exists
     - name: add automount encrypted folder
       block:
         - pamd:
