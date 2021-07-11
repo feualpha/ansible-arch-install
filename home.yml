@@ -75,4 +75,4 @@
             new_control: "[success=1 default-ignore]"
             new_module_path: pam_succeed_if.so
             state: after
-            module_arguments: "service - systemd-user quiet"
+            module_arguments: "service = systemd-user quiet"
