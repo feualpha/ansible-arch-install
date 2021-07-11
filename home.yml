@@ -7,6 +7,8 @@
     - name: username
       prompt: What is your username?
       private: no
+    - name: password
+      prompt: What is your password?
 
   tasks:
     - name: install encryptfs and it's dependencies
@@ -19,7 +21,10 @@
     - name: modprobe ecryptfs
       command: "modprobe ecryptfs"
     - name: encrypt home for user
-      command: "ecryptfs-migrate-home -u {{ username }}"
+      expect:
+        command: "ecryptfs-migrate-home -u {{ username }}"
+        responses:
+          (?i)passphrase: "{{ password }}"
     - name: add automount encrypted folder
       block:
         - pamd:
