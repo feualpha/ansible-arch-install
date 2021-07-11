@@ -16,8 +16,10 @@
           - lsof
           - ecryptfs-utils
         state: present
-    - name: migrate user data
-      command: "modprobe ecryptfs && ecryptfs-migrate-home -u {{ username }}"
+    - name: modprobe ecryptfs
+      command: "modprobe ecryptfs"
+    - name: encrypt home for user
+      command: "ecryptfs-migrate-home -u {{ username }}"
     - name: add automount encrypted folder
       block:
         - pamd:
