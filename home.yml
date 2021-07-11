@@ -40,6 +40,16 @@
             module_arguments: unwrap
         - pamd:
             name: system-auth
+            type: auth
+            control: "required"
+            module_path: pam_ecryptfs.so
+            new_type: auth
+            new_control: "[success=1 default=ignore]"
+            new_module_path: pam_succeed_if.so
+            state: before
+            module_arguments: "service = systemd-user quiet"
+        - pamd:
+            name: system-auth
             type: password
             control: required
             module_path: pam_unix.so
@@ -56,3 +66,13 @@
             new_control: optional
             new_module_path: pam_ecryptfs.so
             state: after
+        - pamd:
+            name: system-auth
+            type: session
+            control: required
+            module_path: pam_ecryptfs.so
+            new_type: session
+            new_control: "[success=1 default-ignore]"
+            new_module_path: pam_succeed_if.so
+            state: after
+            module_arguments: "service - systemd-user quiet"
