@@ -19,13 +19,17 @@
           - ecryptfs-utils
           - python-pexpect
         state: present
-    - name: modprobe ecryptfs
+    - name: load module ecryptfs
       command: "modprobe ecryptfs"
+    - name: Check if folder already encrypted by ecryptfs
+      stat: "path=/home/.ecryptfs/{{ username }}"
+      register: encryptdir
     - name: encrypt home for user
       expect:
         command: "ecryptfs-migrate-home -u {{ username }}"
         responses:
           (?i)passphrase: "{{ password }}"
+      when: encryptdir.stat.exists
     - name: add automount encrypted folder
       block:
         - pamd:
