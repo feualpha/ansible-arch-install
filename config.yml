@@ -8,3 +8,18 @@
       pacman:
         name: reflector
         state: present
+    - name: configure reflector unit
+      lineinfile:
+        path: /etc/xdg/reflector/reflector.conf
+        line: "{{ item.line }}"
+        regexp: "{{ item.regexp }}"
+        state: present
+      with_items:
+        - { regexp: "^--sort", line: "--sort rate" }
+        - { regexp: "^--age", line: "--age 12" }
+        - { regexp: "^--save", line: "--save /etc/pacman.d/mirrorlist" }
+        - { regexp: "^--protocol", line: "--protocol https" }
+        - {
+            regexp: "^--country",
+            line: "--country Indonesia,Singapore,South Korea,Japan,Taiwan",
+          }
