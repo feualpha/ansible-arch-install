@@ -37,7 +37,7 @@
             new_control: required
             new_module_path: pam_ecryptfs.so
             state: after
-            module_argument: unwrap
+            module_arguments: unwrap
         - pamd:
             name: system-auth
             type: password
@@ -46,6 +46,7 @@
             new_type: password
             new_control: optional
             new_module_path: pam_ecryptfs.so
+            state: before
         - pamd:
             name: system-auth
             type: session
@@ -54,3 +55,4 @@
             new_type: session
             new_control: optional
             new_module_path: pam_ecryptfs.so
+            state: after
