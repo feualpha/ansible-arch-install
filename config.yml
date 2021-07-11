@@ -21,8 +21,13 @@
         - { regexp: "^--protocol", line: "--protocol https" }
         - {
             regexp: "^--country",
-            line: "--country Indonesia,Singapore,South Korea,Japan,Taiwan",
+            line: '--country "Indonesia,Singapore,South Korea,Japan,Taiwan"',
           }
+    - name: remove unused reflector default conf
+      lineinfile:
+        path: /etc/xdg/reflector/reflector.conf
+        regexp: "^--latest"
+        state: absent
     - name: enable and start reflector
       service:
         name: reflector
