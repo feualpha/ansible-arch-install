@@ -30,13 +30,13 @@
       block:
         - pamd:
             name: system-auth
-            type: auth
+            type: -auth
             control: [success=2 default=ignore]
-            module_path: pam_unix.so
+            module_path: pam_systemd_home.so
             new_type: auth
             new_control: required
             new_module_path: pam_ecryptfs.so
-            state: after
+            state: before
             module_arguments: unwrap
         - pamd:
             name: system-auth
