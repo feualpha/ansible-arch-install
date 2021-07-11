@@ -30,7 +30,7 @@
       block:
         - pamd:
             name: system-auth
-            type: auth
+            type: -auth
             control: "[success=1 default=ignore]"
             module_path: pam_systemd_home.so
             new_type: auth
