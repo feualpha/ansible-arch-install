@@ -31,8 +31,8 @@
         - pamd:
             name: system-auth
             type: auth
-            control: "[success=2 default=ignore]"
-            module_path: pam_unix.so
+            control: "[success=1 default=ignore]"
+            module_path: pam_systemd_home.so
             new_type: auth
             new_control: required
             new_module_path: pam_ecryptfs.so
