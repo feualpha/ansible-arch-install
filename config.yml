@@ -23,3 +23,8 @@
             regexp: "^--country",
             line: "--country Indonesia,Singapore,South Korea,Japan,Taiwan",
           }
+    - name: enable and start reflector
+      service:
+        name: reflector
+        enabled: yes
+        state: started
