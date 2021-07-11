@@ -9,3 +9,4 @@
     - name: Install yay
       aur:
         name: yay
+        state: present

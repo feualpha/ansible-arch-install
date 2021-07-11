@@ -1,0 +1,48 @@
+# need to run as root only no process for user should be allowed
+---
+- hosts: localhost
+  connection: local
+
+  vars_prompt:
+    - name: username
+      prompt: What is your username?
+      private: no
+
+  tasks:
+    - name: install encryptfs and it's dependencies
+      pacman:
+        name:
+          - rsync
+          - lsof
+          - ecryptfs-utils
+        state: present
+    - name: migrate user data
+      command: "modprobe ecryptfs && ecryptfs-migrate-home -u {{ username }}"
+    - name: add automount encrypted folder
+      block:
+        - pamd:
+            name: system-auth
+            type: auth
+            control: [success=2 default=ignore]
+            module_path: pam_unix.so
+            new_type: auth
+            new_control: required
+            new_module_path: pam_ecryptfs.so
+            state: after
+            module_argument: unwrap
+        - pamd:
+            name: system-auth
+            type: password
+            control: required
+            module_path: pam_unix.so
+            new_type: password
+            new_control: optional
+            new_module_path: pam_ecryptfs.so
+        - pamd:
+            name: system-auth
+            type: session
+            control: required
+            module_path: pam_unix.so
+            new_type: session
+            new_control: optional
+            new_module_path: pam_ecryptfs.so
