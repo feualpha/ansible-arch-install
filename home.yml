@@ -69,7 +69,7 @@
         - pamd:
             name: system-auth
             type: session
-            control: required
+            control: optional
             module_path: pam_ecryptfs.so
             new_type: session
             new_control: "[success=1 default-ignore]"
