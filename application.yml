@@ -10,3 +10,8 @@
       aur:
         name: yay
         state: present
+    - name: Install apps
+      pacman:
+        name:
+          - vim
+          - nano
