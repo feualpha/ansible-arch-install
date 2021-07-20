@@ -1,0 +1,5 @@
+---
+firefox_profiles:
+  default-release:
+    extensions:
+      - bitwarden-password-manager

@@ -1,8 +1,15 @@
 ---
-- name: install firefox\
+- name: install firefox
   pacman:
     name: firefox
     state: present
+- name: install python reqeust for firefox addon role
+  pip:
+    name: requests
+    state: present
+- name: run addon installation
+  include_role:
+    name: basvandenbrink.firefox
 # - name: install firefox addon-dependencies
 #   block:
 #     - pacman:
