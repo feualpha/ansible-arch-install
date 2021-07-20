@@ -31,8 +31,8 @@
       pacman:
         name: calibre
         state: present
-    - name: add spotify gpg
-      shell: "curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -"
+    # - name: add spotify gpg not working currently
+    #   shell: "curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -"
     - name: install spotify
       aur:
         name: spotify
@@ -47,6 +47,7 @@
       aur:
         name: postman-bin
         state: present
+      become: no
     - name: install google chrome
       aur:
         name: google-chrome
