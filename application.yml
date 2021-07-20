@@ -36,7 +36,7 @@
       aur:
         name: visual-studio-code-bin
         state: present
-       become: no
+      become: no
     - name: install postman
       aur:
         name: postman-bin
