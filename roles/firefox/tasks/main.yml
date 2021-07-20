@@ -3,6 +3,10 @@
   pacman:
     name: firefox
     state: present
+- name: install pip
+  pacman:
+    name: pip
+    state: present
 - name: install python reqeust for firefox addon role
   pip:
     name: requests
