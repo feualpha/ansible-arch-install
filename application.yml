@@ -32,6 +32,7 @@
         name: spotify
         state: present
         extra_args: --noconfirm
+        use: yay
     - name: install vscode
       aur:
         name: visual-studio-code-bin
