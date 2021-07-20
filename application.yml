@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  become: yes
 
   roles:
     - kewlfft.aur
@@ -16,18 +15,22 @@
       pacman:
         name: vim
         state: present
+      become: yes
     - name: install curl
       pacman:
         name: curl
         state: present
+      become: yes
     - name: install nano
       pacman:
         name: nano
         state: present
+      become: yes
     - name: install calibre
       pacman:
         name: calibre
         state: present
+      become: yes
     # - name: add spotify gpg not working currently
     #   shell: "curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -"
     - name: install spotify
@@ -54,7 +57,9 @@
       pacman:
         name: steam
         state: present
+      become: yes
     - name: install vlc
       pacman:
         name: vlc
         state: present
+      become: yes
