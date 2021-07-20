@@ -5,6 +5,7 @@
 
   roles:
     - kewlfft.aur
+    - firefox
 
   tasks:
     - name: Install yay
@@ -22,10 +23,6 @@
     - name: install nano
       pacman:
         name: nano
-        state: present
-    - name: install firefox
-      pacman:
-        name: firefox
         state: present
     - name: install calibre
       pacman:
@@ -61,8 +58,3 @@
       pacman:
         name: vlc
         state: present
-    - name: install gnome-terminal-transparency
-      aur:
-        name: gnome-terminal-transparency
-        state: present
-      become: no
