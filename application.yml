@@ -15,6 +15,10 @@
       pacman:
         name: vim
         state: present
+    - name: install curl
+      pacman:
+        name: curl
+        state: present
     - name: install nano
       pacman:
         name: nano
