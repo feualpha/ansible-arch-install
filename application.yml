@@ -27,6 +27,8 @@
       pacman:
         name: calibre
         state: present
+    - name: add spotify gpg
+      command: "curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -"
     - name: install spotify
       aur:
         name: spotify
