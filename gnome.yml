@@ -12,3 +12,8 @@
         state: present
         extra_args: --noconfirm
         update_cache: yes
+    - name: enable gdm
+      service:
+        name: gdm
+        enabled: yes
+        state: started
