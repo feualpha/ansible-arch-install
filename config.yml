@@ -33,3 +33,14 @@
         name: reflector
         enabled: yes
         state: started
+    - name: enable multilib
+      blockinfile:
+        path: /etc/pacman.conf
+        block: |
+          [multilib]
+          Include = /etc/pacman.d/mirrorlist
+    - name: enable pacman parallel download
+      lineinfile:
+        path: /etc/pacman.conf
+        regexp: ^ParallelDownloads
+        line: ParallelDownloads = 5
