@@ -11,8 +11,47 @@
       aur:
         name: yay
         state: present
-    - name: Install apps
+    - name: Install vim
       pacman:
-        name:
-          - vim
-          - nano
+        name: vim
+        state: present
+    - name: install nano
+      pacman:
+        name: nano
+        state: present
+    - name: install firefox
+      pacman:
+        name: firefox
+        state: present
+    - name: install calibre
+      pacman:
+        name: calibre
+        state: present
+    - name: install spotify
+      aur:
+        name: spotify
+        state: present
+    - name: install vscode
+      aur:
+        name: visual-studio-code-bin
+        state: present
+    - name: install postman
+      aur:
+        name: postman-bin
+        state: present
+    - name: install google chrome
+      aur:
+        name: google-chrome
+        state: present
+    - name: install steam
+      pacman:
+        name: steam
+        state: present
+    - name: install vlc
+      pacman:
+        name: vlc
+        state: present
+    - name: install gnome-terminal-transparency
+      aur:
+        name: gnome-terminal-transparency
+        state: present
