@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: install gnome and gnome-extra
+      pacman:
+        name:
+          - gnome
+          - gnome-extra
+        state: present
