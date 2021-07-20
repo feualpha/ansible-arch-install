@@ -10,4 +10,5 @@
           - gnome
           - gnome-extra
         state: present
+        extra_args: --noconfirm
         update_cache: yes
