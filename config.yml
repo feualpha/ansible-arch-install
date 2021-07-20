@@ -42,5 +42,6 @@
     - name: enable pacman parallel download
       lineinfile:
         path: /etc/pacman.conf
+        insertafter: \[options\]
         regexp: ^ParallelDownloads
         line: ParallelDownloads = 5
