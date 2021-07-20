@@ -52,6 +52,7 @@
       aur:
         name: google-chrome
         state: present
+      become: no
     - name: install steam
       pacman:
         name: steam
