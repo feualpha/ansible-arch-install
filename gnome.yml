@@ -10,3 +10,4 @@
           - gnome
           - gnome-extra
         state: present
+        update_cache: yes
