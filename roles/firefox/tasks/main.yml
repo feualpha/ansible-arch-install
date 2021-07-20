@@ -15,21 +15,3 @@
 - name: run addon installation
   include_role:
     name: basvandenbrink.firefox
-# - name: install firefox addon-dependencies
-#   block:
-#     - pacman:
-#         name: sed
-#         state: present
-#     - pacman:
-#         name: libxml2
-#         state: present
-#     - pacman:
-#         name: unzip
-#         state: present
-#     - pacman:
-#         name: curl
-#         state: present
-# - name: install bitwarden
-#   firefox_addon:
-#     url: https://addons.mozilla.org/id/firefox/addon/bitwarden-password-manager
-#     state: present

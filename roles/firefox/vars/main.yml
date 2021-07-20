@@ -3,3 +3,6 @@ firefox_profiles:
   default-release:
     extensions:
       - bitwarden-password-manager
+      - enhancer-for-youtube
+      - facebook-container
+      - gnome-shell-integration
